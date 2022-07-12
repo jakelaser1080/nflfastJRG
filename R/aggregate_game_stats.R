@@ -523,7 +523,7 @@ calculate_player_stats <- function(pbp, weekly = FALSE) {
         2 * (.data$passing_2pt_conversions + .data$rushing_2pt_conversions + .data$receiving_2pt_conversions) +
         -2 * (.data$sack_fumbles_lost + .data$rushing_fumbles_lost + .data$receiving_fumbles_lost),
 
-      fantasy_points_ppr = .data$fantasy_points + .data$receptions
+      fantasy_points_ppr = .data$fantasy_points + 1 / 2 * .data$receptions
     ) %>%
     dplyr::arrange(.data$player_id, .data$season, .data$week)
 
